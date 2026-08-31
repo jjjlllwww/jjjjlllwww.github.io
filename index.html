@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="你的名字 · 数字产品设计师的个人作品集">
+  <title>你的名字 · 数字产品设计师</title>
+  <!-- 上线前替换清单：正文占位文案、项目海报图、联系方式、字体建议自托管 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/intro.css">
+  <link rel="stylesheet" href="assets/css/snapshots.css">
+  <link rel="stylesheet" href="assets/css/career.css">
+  <link rel="stylesheet" href="assets/css/skills.css">
+  <link rel="stylesheet" href="assets/css/love-hate.css">
+  <link rel="stylesheet" href="assets/css/footer.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="intro" id="hero" data-od-id="hero">
+      <div class="intro__topline">
+        <p class="intro__role">数字产品设计师</p>
+        <p class="intro__employer">你的名字 · 2026</p>
+      </div>
+
+      <h1 class="intro__title">
+        <span class="intro__title-line intro__title-line--greeting"><span class="hello-word">你好</span></span>
+        <span class="intro__title-line intro__title-line--name" data-animate-title>你的名字</span>
+      </h1>
+
+      <div class="intro__bio" data-animate-title>
+        <p>你的一句话自我介绍，说说你是谁、做什么。</p>
+        <p>以及你专注的领域，或最想被记住的一件事。</p>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <div class="snapshots-outer" data-snapshots data-od-id="snapshots">
+      <header class="snapshots-header">
+        <h2 class="snapshots-header__title" data-animate-title>精选项目</h2>
+      </header>
+      <div class="snapshots-sticky">
+        <div class="snapshots-track-wrapper">
+          <div class="snapshots-track">
+            <figure class="snapshots-card" data-od-id="project-card-finance">
+              <img class="snapshots-card__image" src="assets/images/poster-finance.svg" alt="钱包 · 金融 App（占位图，上线前替换为真实项目图）">
+              <figcaption class="snapshots-card__caption">钱包 · 金融 App</figcaption>
+            </figure>
+            <figure class="snapshots-card" data-od-id="project-card-travel">
+              <img class="snapshots-card__image" src="assets/images/poster-travel.svg" alt="远方 · 旅行规划（占位图，上线前替换为真实项目图）">
+              <figcaption class="snapshots-card__caption">远方 · 旅行规划</figcaption>
+            </figure>
+            <figure class="snapshots-card" data-od-id="project-card-commerce">
+              <img class="snapshots-card__image" src="assets/images/poster-commerce.svg" alt="集 · 品牌商城（占位图，上线前替换为真实项目图）">
+              <figcaption class="snapshots-card__caption">集 · 品牌商城</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Career -->
+    <section class="career-section" id="career" data-od-id="career">
+      <header class="career-header">
+        <h2 class="career-header__title" data-animate-title data-animate-group="career">经历</h2>
+      </header>
+      <div class="career-outer">
+        <div class="career-track">
+          <div class="career-card" data-od-id="career-card-1">
+            <p class="career-card__meta">2023 — 2026</p>
+            <p class="career-card__name">你的公司 A</p>
+          </div>
+          <div class="career-card" data-od-id="career-card-2">
+            <p class="career-card__meta">2020 — 2023</p>
+            <p class="career-card__name">你的公司 B</p>
+          </div>
+          <div class="career-card" data-od-id="career-card-3">
+            <p class="career-card__meta">2018 — 2020</p>
+            <p class="career-card__name">你的公司 C</p>
+          </div>
+          <div class="career-card" data-od-id="career-card-4">
+            <p class="career-card__meta">2016 — 2018</p>
+            <p class="career-card__name">你的大学</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="skills-section" id="skills" data-od-id="skills">
+      <div class="skills-inner">
+        <div class="skills-list">
+          <div class="skill-item" data-od-id="skill-strategy">
+            <div class="skill-row">
+              <span class="skill-name">产品策略</span>
+              <button class="skill-toggle" aria-label="展开 产品策略 详情">
+                <svg class="skill-toggle__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+              </button>
+            </div>
+            <div class="skill-body">
+              <p>一句话写清楚：这里可以放你在产品策略方向的积累与擅长点。</p>
+            </div>
+          </div>
+          <div class="skill-item" data-od-id="skill-ux">
+            <div class="skill-row">
+              <span class="skill-name">交互设计</span>
+              <button class="skill-toggle" aria-label="展开 交互设计 详情">
+                <svg class="skill-toggle__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+              </button>
+            </div>
+            <div class="skill-body">
+              <p>一句话写清楚：这里可以放你在交互设计与动效方面的积累与擅长点。</p>
+            </div>
+          </div>
+          <div class="skill-item" data-od-id="skill-visual">
+            <div class="skill-row">
+              <span class="skill-name">视觉设计</span>
+              <button class="skill-toggle" aria-label="展开 视觉设计 详情">
+                <svg class="skill-toggle__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+              </button>
+            </div>
+            <div class="skill-body">
+              <p>一句话写清楚：这里可以放你在视觉语言与品牌方向的积累与擅长点。</p>
+            </div>
+          </div>
+          <div class="skill-item" data-od-id="skill-prototype">
+            <div class="skill-row">
+              <span class="skill-name">前端原型</span>
+              <button class="skill-toggle" aria-label="展开 前端原型 详情">
+                <svg class="skill-toggle__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+              </button>
+            </div>
+            <div class="skill-body">
+              <p>一句话写清楚：这里可以放你用代码做可交互原型的积累与擅长点。</p>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="skills-title" data-animate-title data-animate-group="skills">技能</h2>
+      </div>
+    </section>
+
+    <!-- Love / Hate -->
+    <section class="love-hate" id="love-hate" data-od-id="love-hate">
+      <div class="love-hate__block">
+        <h2 class="love-hate__text" data-animate-title data-animate-group="love">我爱 <span class="love-hate__accent">简洁与秩序</span></h2>
+      </div>
+      <div class="love-hate__block">
+        <h2 class="love-hate__text" data-animate-title data-animate-group="love">我恨 <span class="love-hate__accent">无意义的复杂性</span></h2>
+      </div>
+    </section>
+
+    <!-- Spacer that reveals the fixed footer -->
+    <div class="footer-spacer"></div>
+  </main>
+
+  <footer id="contact" data-od-id="contact">
+    <div class="footer-marquee" aria-hidden="true">
+      <div class="footer-marquee-track">
+        <span class="footer-thankyou">谢谢</span><span class="footer-bye">再见</span>
+        <span class="footer-thankyou">谢谢</span><span class="footer-bye">再见</span>
+      </div>
+    </div>
+    <nav class="footer-links" aria-label="联系方式">
+      <a href="mailto:hello@example.com">邮箱</a>
+      <a href="#" aria-label="作品集（占位链接）">作品集</a>
+      <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+    <p class="footer-copyright">© 2026 你的名字</p>
+  </footer>
+
+  <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>
