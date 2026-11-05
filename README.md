@@ -1,8 +1,8 @@
 # jjjlllwww.github.io
 
-个人作品集站点，以及一个可被 AI 编码代理直接调用的品牌设计系统库。
+一个可被 AI 编码代理直接调用的品牌设计系统库：84 套真实网站提炼的 `DESIGN.md`。
 
-A personal portfolio site plus a brand design-system library that AI coding agents can load directly.
+A brand design-system library that AI coding agents can load directly — 84 `DESIGN.md` specs distilled from real websites.
 
 ---
 
@@ -10,7 +10,7 @@ A personal portfolio site plus a brand design-system library that AI coding agen
 
 ```
 .
-├── index.html              # 作品集首页（GitHub Pages 默认入口）
+├── index.html              # 站点根入口：跳转到设计系统库
 ├── awesome-design-md/      # 设计系统库：84 套品牌 DESIGN.md + 检索页
 │   ├── index.html          # 分类索引页（色块墙 / 搜索 / 筛选）
 │   ├── SKILL.md            # 技能入口：使用流程 + 84 套索引表
@@ -29,8 +29,12 @@ A personal portfolio site plus a brand design-system library that AI coding agen
 
 | 路径 Path | 内容 What it is |
 |---|---|
-| `/` | 作品集首页 Portfolio homepage |
+| `/` | 跳转页，3 秒后进入设计系统库 Redirect to the library |
 | `/awesome-design-md/` | 设计系统库索引页 Design-system library index |
+
+根入口只做跳转，不留内容页；作品集页面不在此仓库维护。
+
+The root page is a redirect only; there is no portfolio page in this repository.
 
 GitHub Pages 的发布源为 `main` 分支根目录；根目录的 `.nojekyll` 让 84 份带 YAML frontmatter 的 markdown 按原始文本提供，不参与 Jekyll 渲染。
 
@@ -79,13 +83,13 @@ Each entry is a `DESIGN.md` — a plain-text design spec in Google Stitch format
 python -m http.server 8000
 ```
 
-然后访问 `http://localhost:8000/`。直接双击 `index.html` 也能看到首页，但设计系统索引页的筛选与搜索需要 DOM 运行环境，建议走本地服务器。
+然后访问 `http://localhost:8000/awesome-design-md/`。直接双击该目录下的 `index.html` 也能看到卡片墙，但搜索与筛选需要 DOM 运行环境，建议走本地服务器。
 
-Note: opening `index.html` directly with `file://` shows the homepage, but the library index's search and filters are easiest to verify through a local server.
+Visit `http://localhost:8000/awesome-design-md/`. Opening `index.html` with `file://` renders the wall, but search and filters are easiest to verify through a local server.
 
 ## 许可与致谢 · License & credits
 
-- 站点代码：本仓库自有内容，未单独声明许可，转载图片与文案前请先联系作者。
+- 站点代码：本仓库自有内容（跳转入口与检索页），未单独声明许可，转载前请先联系作者。
 - 设计系统库：上游为 [VoltAgent/awesome-design-md](https://github.com/VoltAgent/awesome-design-md)，MIT License，**保留原始 `LICENSE` 与归属**；打包环节只增加了技能入口、索引、检索页与校验，未改动任何 `DESIGN.md` 内容。
 - `DESIGN.md` 中的 token 取自公开网站可见的 CSS 值。这些文件描述的是设计语言的规律，**不构成对任何品牌的授权**：用于内部原型、练习与风格研究是合适的；对外商用且需要品牌露出时，请自行确认商标与视觉资产的使用权限。
 
