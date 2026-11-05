@@ -1,0 +1,1598 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="84 套从真实网站提炼的 DESIGN.md 品牌设计系统索引，供 AI 编码代理读取并生成一致的界面。">
+<title>设计系统库 · 84 套 DESIGN.md</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23101311'/><rect x='5' y='5' width='7' height='22' fill='%23f3f4f2'/><rect x='14' y='5' width='7' height='10' fill='%23ff6b4a'/><rect x='24' y='5' width='3' height='22' fill='%23888'/></svg>">
+<style>
+:root{
+  --paper:#f3f4f2;
+  --panel:#ffffff;
+  --ink:#101311;
+  --muted:#666b66;
+  --rule:#ccd0cb;
+  --rule-soft:#e2e5e1;
+  --grid-gap:14px;
+  --serif:"Songti SC","Source Han Serif SC",ui-serif,Georgia,"Times New Roman",serif;
+  --sans:"PingFang SC","HarmonyOS Sans SC","Microsoft YaHei",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:ui-monospace,"Cascadia Mono",Consolas,"SF Mono",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--sans);font-size:15px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+
+/* ---------- 头部 ---------- */
+.masthead{padding:56px 0 28px;border-bottom:1px solid var(--rule)}
+.masthead__top{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:baseline;justify-content:space-between}
+.masthead__kicker{font-size:12px;letter-spacing:.14em;color:var(--muted)}
+.masthead__src{font-size:12px;color:var(--muted)}
+.masthead__src a{text-decoration:none;border-bottom:1px solid var(--rule)}
+.masthead__title{display:flex;flex-wrap:wrap;align-items:flex-end;gap:0 18px;margin:22px 0 0}
+.masthead__num{
+  font-family:var(--serif);font-size:clamp(52px,11vw,104px);line-height:.86;
+  letter-spacing:-.02em;margin:0;
+}
+.masthead__title h1{
+  font-family:var(--serif);font-weight:400;font-size:clamp(22px,3.4vw,34px);
+  line-height:1.15;letter-spacing:.01em;margin:0 0 6px;
+}
+.masthead__lede{margin:18px 0 0;max-width:52ch;color:#26292a;font-size:15px;line-height:1.7}
+.masthead__facts{
+  display:flex;flex-wrap:wrap;gap:6px 22px;margin:22px 0 0;
+  font-size:12.5px;color:var(--muted);font-family:var(--mono);
+}
+
+/* ---------- 用法 ---------- */
+.steps{padding:30px 0 34px;border-bottom:1px solid var(--rule)}
+.steps__head{font-size:12px;letter-spacing:.14em;color:var(--muted);margin:0 0 16px}
+.steps__list{display:grid;gap:18px;margin:0;padding:0;list-style:none}
+.step{display:grid;grid-template-columns:26px 1fr;gap:12px;align-items:start}
+.step__n{font-family:var(--mono);font-size:12px;color:var(--muted);padding-top:3px}
+.step__body{margin:0}
+.step__body b{font-weight:600}
+.step code{
+  font-family:var(--mono);font-size:12.5px;background:var(--panel);
+  padding:1px 5px;border:1px solid var(--rule-soft);border-radius:2px;
+  word-break:normal;overflow-wrap:anywhere;
+}
+@media (min-width:820px){
+  .steps__list{grid-template-columns:repeat(3,1fr);gap:28px}
+  .step{grid-template-columns:1fr;gap:6px}
+  .step__n{padding-top:0;border-top:1px solid var(--rule);padding-top:10px}
+}
+
+/* ---------- 控制条 ---------- */
+.controls{
+  position:sticky;top:0;z-index:10;background:var(--paper);
+  border-bottom:1px solid var(--rule);padding:12px 0;
+}
+.controls__row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.search{
+  flex:1 1 220px;min-width:0;display:flex;align-items:center;gap:8px;
+  background:var(--panel);border:1px solid var(--rule);padding:0 10px;
+}
+.search svg{width:15px;height:15px;flex:none;opacity:.5}
+.search input{
+  flex:1 1 auto;min-width:0;border:0;background:transparent;padding:9px 0;
+  font-family:var(--sans);font-size:16px;color:var(--ink);
+}
+.search input:focus{outline:none}
+.search:focus-within{border-color:var(--ink)}
+.count{font-family:var(--mono);font-size:12px;color:var(--muted);white-space:nowrap}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 0;padding:0;list-style:none}
+.chip{
+  font-family:var(--sans);font-size:13px;line-height:1;background:transparent;
+  border:1px solid var(--rule);color:#2b2f2c;padding:8px 11px;cursor:pointer;
+  display:inline-flex;align-items:center;gap:7px;border-radius:1px;
+}
+.chip:hover{border-color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.chip i{font-style:normal;font-family:var(--mono);font-size:11px;opacity:.62}
+
+/* ---------- 卡片墙 ---------- */
+.wall{padding:8px 0 10px}
+.group{padding:26px 0 6px;border-bottom:1px solid var(--rule-soft)}
+.group__head{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;margin:0 0 14px}
+.group__name{font-family:var(--serif);font-size:20px;margin:0;font-weight:400}
+.group__en{font-size:11.5px;letter-spacing:.08em;color:var(--muted)}
+.group__n{font-family:var(--mono);font-size:11.5px;color:var(--muted);margin-left:auto}
+.cards{column-count:1;column-gap:var(--grid-gap)}
+@media (min-width:560px){.cards{column-count:2}}
+@media (min-width:900px){.cards{column-count:3}}
+@media (min-width:1240px){.cards{column-count:4}}
+
+.card{
+  display:block;break-inside:avoid;background:var(--panel);
+  border:1px solid var(--rule);text-decoration:none;color:inherit;
+  margin:0 0 var(--grid-gap);overflow:hidden;
+  transition:border-color .14s ease,transform .14s ease;
+}
+.card:hover{border-color:var(--ink);transform:translateY(-1px)}
+.card__sw{display:flex;height:38px}
+.card__sw span{flex:1 1 0;min-width:0}
+.card__body{padding:12px 13px 11px}
+.card__name{
+  font-family:var(--serif);font-size:19px;line-height:1.2;margin:0;
+  display:flex;align-items:baseline;gap:7px;flex-wrap:wrap;
+}
+.card__name em{font-style:normal;font-family:var(--mono);font-size:10.5px;color:var(--muted);letter-spacing:.02em}
+.card__desc{margin:7px 0 0;font-size:12.5px;line-height:1.5;color:#43483f;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.card__foot{
+  display:flex;align-items:center;gap:8px;margin:11px 0 0;padding-top:9px;
+  border-top:1px solid var(--rule-soft);font-size:11px;font-family:var(--mono);color:var(--muted);
+}
+.card__kind{padding:1px 5px;border:1px solid var(--rule-soft);color:#31363a}
+.card__go{margin-left:auto;font-family:var(--sans);font-size:11.5px;color:var(--muted)}
+.card:hover .card__go{color:var(--ink)}
+
+.empty{border:1px solid var(--rule);background:var(--panel);padding:34px 20px;text-align:center;margin:26px 0}
+.empty p{margin:0 0 14px;color:var(--muted)}
+.empty button{
+  font-family:var(--sans);font-size:13px;padding:9px 15px;border:1px solid var(--ink);
+  background:var(--ink);color:var(--paper);cursor:pointer;border-radius:1px;
+}
+
+/* ---------- 页脚 ---------- */
+.foot{padding:34px 0 60px;border-top:1px solid var(--rule);margin-top:20px}
+.foot p{max-width:62ch;font-size:13px;color:var(--muted);margin:0 0 10px}
+.foot nav{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:16px;font-size:13px}
+.foot nav a{border-bottom:1px solid var(--rule);text-decoration:none;padding-bottom:2px}
+.foot nav a:hover{border-color:var(--ink)}
+.legend{font-size:12px;color:var(--muted);margin:12px 0 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="masthead__top">
+      <span class="masthead__kicker">设计系统库 / DESIGN SYSTEMS</span>
+      <span class="masthead__src">来源 <a href="https://github.com/VoltAgent/awesome-design-md" target="_blank" rel="noopener">VoltAgent/awesome-design-md</a> · MIT</span>
+    </div>
+    <div class="masthead__title">
+      <p class="masthead__num">84</p>
+      <h1>套界面视觉体系，以纯文本形式可读</h1>
+    </div>
+    <p class="masthead__lede">
+      每套是一份 DESIGN.md：色彩 token、字体层级、组件状态、间距栅格、阴影层级、正误示例。把它交给 AI 编码代理，生成的界面就会贴近该品牌的视觉语言，而不是套一个通用模板。
+    </p>
+    <p class="masthead__facts">
+      <span>10 类</span><span>2.4 MB</span><span>Stitch 规范</span><span>84 × DESIGN.md</span>
+    </p>
+  </header>
+
+  <section class="steps" aria-labelledby="steps-head">
+    <h2 class="steps__head" id="steps-head">怎么用</h2>
+    <ol class="steps__list">
+      <li class="step">
+        <span class="step__n">01</span>
+        <p class="step__body"><b>安装</b>：把 <code>awesome-design-md/</code> 放入代理的技能目录，例如 <code>.user_skills/awesome-design-md/</code>。</p>
+      </li>
+      <li class="step">
+        <span class="step__n">02</span>
+        <p class="step__body"><b>定位</b>：说出目标品牌，或按下面的色块与关键词挑选——代理会读取对应目录的 DESIGN.md 全文。</p>
+      </li>
+      <li class="step">
+        <span class="step__n">03</span>
+        <p class="step__body"><b>落地</b>：token 逐条映射成 CSS 变量，字重字号行高字距一并带上，不用近似色替代原始 hex。</p>
+      </li>
+    </ol>
+  </section>
+
+  <div class="controls">
+    <div class="controls__row">
+      <label class="search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.2-4.2"/></svg>
+        <input id="q" type="search" placeholder="搜品牌、风格关键词，如 stripe、暗黑、衬线" aria-label="搜索品牌或风格">
+      </label>
+      <span class="count" id="count" aria-live="polite">84 / 84</span>
+    </div>
+    <ul class="chips" id="chips"></ul>
+  </div>
+
+  <main class="wall" id="wall"></main>
+
+  <footer class="foot">
+    <p class="legend" id="legend">色块按各套 DESIGN.md 的 token 顺序取前五色，首格通常为该系统的品牌强调色；个别未提供 token 的文件按其正文配色说明取用。</p>
+    <p>这些记录描述的是设计语言的规律，不构成对任何品牌的授权。用于内部原型、练习与风格研究合适；对外商用且需要品牌露出时，请自行确认商标与视觉资产的使用权限。</p>
+    <p>仅在打包环节做了索引与校验，未改动任何 DESIGN.md 内容。</p>
+    <nav>
+      <a href="SKILL.md">SKILL.md 索引</a>
+      <a href="README.md">说明文档</a>
+      <a href="https://github.com/jjjlllwww/JJJLLLWWW.github.io/tree/main/awesome-design-md" target="_blank" rel="noopener">GitHub 仓库</a>
+      <a href="../">返回作品集</a>
+    </nav>
+  </footer>
+</div>
+
+<script>
+const DATA = {
+"order": [
+"AI & LLM Platforms",
+"Developer Tools & IDEs",
+"Backend, Database & DevOps",
+"Productivity & SaaS",
+"Design & Creative Tools",
+"Fintech & Crypto",
+"E-commerce & Retail",
+"Media & Consumer Tech",
+"Automotive",
+"Retro Web (1990s/2000s)"
+],
+"systems": [
+{
+"slug": "claude",
+"name": "Claude",
+"cat": "AI & LLM Platforms",
+"catZh": "AI 与大模型",
+"desc": "Anthropic's AI assistant. Warm terracotta accent, clean editorial layout",
+"sw": [
+"#CC785C",
+"#141413",
+"#FAF9F5",
+"#181715",
+"#EFE9DE"
+],
+"font": "serif"
+},
+{
+"slug": "cohere",
+"name": "Cohere",
+"cat": "AI & LLM Platforms",
+"catZh": "AI 与大模型",
+"desc": "Enterprise AI platform. Vibrant gradients, data-rich dashboard aesthetic",
+"sw": [
+"#17171C",
+"#212121",
+"#FFFFFF",
+"#000000",
+"#003C33"
+],
+"font": "sans"
+},
+{
+"slug": "elevenlabs",
+"name": "ElevenLabs",
+"cat": "AI & LLM Platforms",
+"catZh": "AI 与大模型",
+"desc": "AI voice platform. Dark cinematic UI, audio-waveform aesthetics",
+"sw": [
+"#292524",
+"#0C0A09",
+"#F5F5F5",
+"#FFFFFF",
+"#4E4E4E"
+],
+"font": "serif"
+},
+{
+"slug": "jobright",
+"name": "Jobright",
+"cat": "AI & LLM Platforms",
+"catZh": "AI 与大模型",
+"desc": "AI job-hunting platform. Spring-mint green, black pill buttons, condensed Titillium headlines",
+"sw": [
+"#00F0A0",
+"#000000",
+"#FFFFFF",
+"#ECFFE0",
+"#86909C"
+],
+"font": "sans"
+},
+{
+"slug": "minimax",
+"name": "Minimax",
+"cat": "AI & LLM Platforms",
+"catZh": "AI 与大模型",
+"desc": "AI model provider. Bold dark interface with neon accents",
+"sw": [
+"#0A0A0A",
+"#FFFFFF",
+"#F7F8FA",
+"#181E25",
+"#FF5530"
+],
+"font": "sans"
+},
+{
+"slug": "mistral.ai",
+"name": "Mistral AI",
+"cat": "AI & LLM Platforms",
+"catZh": "AI 与大模型",
+"desc": "Open-weight LLM provider. French-engineered minimalism, purple-toned",
+"sw": [
+"#FA520F",
+"#1F1F1F",
+"#FFFFFF",
+"#FAFAFA",
+"#CC3A05"
+],
+"font": "serif"
+},
+{
+"slug": "ollama",
+"name": "Ollama",
+"cat": "AI & LLM Platforms",
+"catZh": "AI 与大模型",
+"desc": "Run LLMs locally. Terminal-first, monochrome simplicity",
+"sw": [
+"#000000",
+"#FFFFFF",
+"#171717",
+"#737373",
+"#090909"
+],
+"font": "sans"
+},
+{
+"slug": "opencode.ai",
+"name": "OpenCode AI",
+"cat": "AI & LLM Platforms",
+"catZh": "AI 与大模型",
+"desc": "AI coding platform. Developer-centric dark theme",
+"sw": [
+"#201D1D",
+"#007AFF",
+"#FDFCFC",
+"#F1EEEE",
+"#424245"
+],
+"font": "mono"
+},
+{
+"slug": "replicate",
+"name": "Replicate",
+"cat": "AI & LLM Platforms",
+"catZh": "AI 与大模型",
+"desc": "Run ML models via API. Clean white canvas, code-forward",
+"sw": [
+"#EA2804",
+"#202020",
+"#F9F7F3",
+"#FFFFFF",
+"#3A3A3A"
+],
+"font": "sans"
+},
+{
+"slug": "runwayml",
+"name": "Runway",
+"cat": "AI & LLM Platforms",
+"catZh": "AI 与大模型",
+"desc": "AI creative-tools platform with an editorial film-festival aesthetic — cinematic dark heroes, paper-white reading bands, single proprietary sans, and pure black pill CTAs.",
+"sw": [
+"#000000",
+"#FFFFFF",
+"#1A1A1A",
+"#767D88",
+"#030303"
+],
+"font": "serif"
+},
+{
+"slug": "together.ai",
+"name": "Together AI",
+"cat": "AI & LLM Platforms",
+"catZh": "AI 与大模型",
+"desc": "Open-source AI infrastructure. Technical, blueprint-style design",
+"sw": [
+"#000000",
+"#FFFFFF",
+"#959494",
+"#010120",
+"#313641"
+],
+"font": "serif"
+},
+{
+"slug": "voltagent",
+"name": "VoltAgent",
+"cat": "AI & LLM Platforms",
+"catZh": "AI 与大模型",
+"desc": "AI agent framework. Void-black canvas, emerald accent, terminal-native",
+"sw": [
+"#00D992",
+"#F2F2F2",
+"#101010",
+"#BDBDBD",
+"#2FD6A1"
+],
+"font": "serif"
+},
+{
+"slug": "x.ai",
+"name": "xAI",
+"cat": "AI & LLM Platforms",
+"catZh": "AI 与大模型",
+"desc": "Elon Musk's AI lab. Stark monochrome, futuristic minimalism",
+"sw": [
+"#FFFFFF",
+"#0A0A0A",
+"#DADBDF",
+"#FAFAF7",
+"#7D8187"
+],
+"font": "serif"
+},
+{
+"slug": "cursor",
+"name": "Cursor",
+"cat": "Developer Tools & IDEs",
+"catZh": "开发者工具",
+"desc": "AI-first code editor. Sleek dark interface, gradient accents",
+"sw": [
+"#F54E00",
+"#26251E",
+"#F7F7F4",
+"#FFFFFF",
+"#5A5852"
+],
+"font": "serif"
+},
+{
+"slug": "expo",
+"name": "Expo",
+"cat": "Developer Tools & IDEs",
+"catZh": "开发者工具",
+"desc": "React Native platform. Dark theme, tight letter-spacing, code-centric",
+"sw": [
+"#000000",
+"#171717",
+"#FFFFFF",
+"#60646C",
+"#1A1A1A"
+],
+"font": "serif"
+},
+{
+"slug": "lovable",
+"name": "Lovable",
+"cat": "Developer Tools & IDEs",
+"catZh": "开发者工具",
+"desc": "AI full-stack builder. Playful gradients, friendly dev aesthetic",
+"sw": [
+"#F7F4ED",
+"#1C1C1C",
+"#ECEAE4",
+"#FFFFFF",
+"#F7F4ED"
+],
+"font": "serif"
+},
+{
+"slug": "raycast",
+"name": "Raycast",
+"cat": "Developer Tools & IDEs",
+"catZh": "开发者工具",
+"desc": "Productivity launcher. Sleek dark chrome, vibrant gradient accents",
+"sw": [
+"#FFFFFF",
+"#F4F4F6",
+"#07080A",
+"#121212",
+"#CDCDCD"
+],
+"font": "sans"
+},
+{
+"slug": "superhuman",
+"name": "Superhuman",
+"cat": "Developer Tools & IDEs",
+"catZh": "开发者工具",
+"desc": "Fast email client. Premium dark UI, keyboard-first, purple glow",
+"sw": [
+"#1B1938",
+"#292827",
+"#FFFFFF",
+"#0E0C1F",
+"#73706D"
+],
+"font": "serif"
+},
+{
+"slug": "vercel",
+"name": "Vercel",
+"cat": "Developer Tools & IDEs",
+"catZh": "开发者工具",
+"desc": "Frontend deployment platform. Black and white precision, Geist font",
+"sw": [
+"#171717",
+"#FFFFFF",
+"#4D4D4D",
+"#888888",
+"#EBEBEB"
+],
+"font": "serif"
+},
+{
+"slug": "warp",
+"name": "Warp",
+"cat": "Developer Tools & IDEs",
+"catZh": "开发者工具",
+"desc": "Modern terminal. Dark IDE-like interface, block-based command UI",
+"sw": [
+"#F7F5F0",
+"#2B2622",
+"#C9C0AD",
+"#DAD2C1",
+"#AEA69C"
+],
+"font": "serif"
+},
+{
+"slug": "clickhouse",
+"name": "ClickHouse",
+"cat": "Backend, Database & DevOps",
+"catZh": "后端与运维",
+"desc": "Fast analytics database. Yellow-accented, technical documentation style",
+"sw": [
+"#FAFF69",
+"#FFFFFF",
+"#0A0A0A",
+"#1A1A1A",
+"#CCCCCC"
+],
+"font": "serif"
+},
+{
+"slug": "composio",
+"name": "Composio",
+"cat": "Backend, Database & DevOps",
+"catZh": "后端与运维",
+"desc": "Tool integration platform. Modern dark with colorful integration icons",
+"sw": [
+"#0007CD",
+"#FFFFFF",
+"#0F0F0F",
+"#181818",
+"#A8A8A8"
+],
+"font": "serif"
+},
+{
+"slug": "hashicorp",
+"name": "HashiCorp",
+"cat": "Backend, Database & DevOps",
+"catZh": "后端与运维",
+"desc": "Infrastructure automation. Enterprise-clean, black and white",
+"sw": [
+"#000000",
+"#FFFFFF",
+"#2B89FF",
+"#B2B6BD",
+"#656A76"
+],
+"font": "sans"
+},
+{
+"slug": "mongodb",
+"name": "MongoDB",
+"cat": "Backend, Database & DevOps",
+"catZh": "后端与运维",
+"desc": "Document database. Green leaf branding, developer documentation focus",
+"sw": [
+"#00ED64",
+"#001E2B",
+"#FFFFFF",
+"#F9FBFA",
+"#00B545"
+],
+"font": "sans"
+},
+{
+"slug": "oracle",
+"name": "Oracle",
+"cat": "Backend, Database & DevOps",
+"catZh": "后端与运维",
+"desc": "Enterprise cloud and database software. Warm neutral ladder, charcoal-only actions, red saved for the wordmark",
+"sw": [
+"#312D2A",
+"#161513",
+"#FFFFFF",
+"#47423E",
+"#C74634"
+],
+"font": "serif"
+},
+{
+"slug": "posthog",
+"name": "PostHog",
+"cat": "Backend, Database & DevOps",
+"catZh": "后端与运维",
+"desc": "Product analytics. Playful hedgehog branding, developer-friendly dark UI",
+"sw": [
+"#F7A501",
+"#23251D",
+"#EEEFE9",
+"#FFFFFF",
+"#4D4F46"
+],
+"font": "sans"
+},
+{
+"slug": "sanity",
+"name": "Sanity",
+"cat": "Backend, Database & DevOps",
+"catZh": "后端与运维",
+"desc": "Headless content platform with a dark-first editorial marketing surface — 112px display type, IBM Plex Mono technical eyebrows, and a single coral-red accent reserved for the highest-priority CTA.",
+"sw": [
+"#0B0B0B",
+"#0052EF",
+"#F36458",
+"#FFFFFF",
+"#1A1A1A"
+],
+"font": "serif"
+},
+{
+"slug": "sentry",
+"name": "Sentry",
+"cat": "Backend, Database & DevOps",
+"catZh": "后端与运维",
+"desc": "Error monitoring. Dark dashboard, data-dense, pink-purple accent",
+"sw": [
+"#150F23",
+"#1F1633",
+"#FFFFFF",
+"#C2EF4E",
+"#FA7FAA"
+],
+"font": "serif"
+},
+{
+"slug": "supabase",
+"name": "Supabase",
+"cat": "Backend, Database & DevOps",
+"catZh": "后端与运维",
+"desc": "Open-source Firebase alternative. Dark emerald theme, code-first",
+"sw": [
+"#3ECF8E",
+"#171717",
+"#FFFFFF",
+"#24B47E",
+"#4ADE80"
+],
+"font": "serif"
+},
+{
+"slug": "cal",
+"name": "Cal.com",
+"cat": "Productivity & SaaS",
+"catZh": "效率与 SaaS",
+"desc": "Open-source scheduling. Clean neutral UI, developer-oriented simplicity",
+"sw": [
+"#111111",
+"#FFFFFF",
+"#101010",
+"#F5F5F5",
+"#374151"
+],
+"font": "serif"
+},
+{
+"slug": "intercom",
+"name": "Intercom",
+"cat": "Productivity & SaaS",
+"catZh": "效率与 SaaS",
+"desc": "Customer messaging. Friendly blue palette, conversational UI patterns",
+"sw": [
+"#111111",
+"#F5F1EC",
+"#FFFFFF",
+"#626260",
+"#7B7B78"
+],
+"font": "sans"
+},
+{
+"slug": "linear.app",
+"name": "Linear",
+"cat": "Productivity & SaaS",
+"catZh": "效率与 SaaS",
+"desc": "Project management for engineers. Ultra-minimal, precise, purple accent",
+"sw": [
+"#5E6AD2",
+"#F7F8F8",
+"#010102",
+"#FFFFFF",
+"#828FFF"
+],
+"font": "sans"
+},
+{
+"slug": "mintlify",
+"name": "Mintlify",
+"cat": "Productivity & SaaS",
+"catZh": "效率与 SaaS",
+"desc": "Documentation platform. Clean, green-accented, reading-optimized",
+"sw": [
+"#0A0A0A",
+"#FFFFFF",
+"#F7F7F7",
+"#00D4A4",
+"#00B48A"
+],
+"font": "sans"
+},
+{
+"slug": "notion",
+"name": "Notion",
+"cat": "Productivity & SaaS",
+"catZh": "效率与 SaaS",
+"desc": "All-in-one workspace. Warm minimalism, serif headings, soft surfaces",
+"sw": [
+"#5645D4",
+"#1A1A1A",
+"#FFFFFF",
+"#F6F5F4",
+"#4534B3"
+],
+"font": "sans"
+},
+{
+"slug": "resend",
+"name": "Resend",
+"cat": "Productivity & SaaS",
+"catZh": "效率与 SaaS",
+"desc": "Email API for developers. Minimal dark theme, monospace accents",
+"sw": [
+"#FCFDFF",
+"#000000",
+"#0A0A0C",
+"#A1A4A5",
+"#888E90"
+],
+"font": "sans"
+},
+{
+"slug": "sap",
+"name": "SAP",
+"cat": "Productivity & SaaS",
+"catZh": "效率与 SaaS",
+"desc": "Enterprise business software. White canvas, flat blue bands, application-frame chrome",
+"sw": [
+"#0057D2",
+"#000000",
+"#FFFFFF",
+"#0040B0",
+"#022879"
+],
+"font": "sans"
+},
+{
+"slug": "zapier",
+"name": "Zapier",
+"cat": "Productivity & SaaS",
+"catZh": "效率与 SaaS",
+"desc": "Automation platform. Warm orange, friendly illustration-driven",
+"sw": [
+"#FF4F00",
+"#201515",
+"#FFFEFB",
+"#605D52",
+"#2F2A26"
+],
+"font": "serif"
+},
+{
+"slug": "airtable",
+"name": "Airtable",
+"cat": "Design & Creative Tools",
+"catZh": "设计与创意工具",
+"desc": "Spreadsheet-database hybrid. Colorful, friendly, structured data aesthetic",
+"sw": [
+"#181D26",
+"#FFFFFF",
+"#333840",
+"#0D1218",
+"#41454D"
+],
+"font": "serif"
+},
+{
+"slug": "clay",
+"name": "Clay",
+"cat": "Design & Creative Tools",
+"catZh": "设计与创意工具",
+"desc": "Creative agency. Organic shapes, soft gradients, art-directed layout",
+"sw": [
+"#0A0A0A",
+"#FFFAF0",
+"#0A1A1A",
+"#F5F0E0",
+"#3A3A3A"
+],
+"font": "serif"
+},
+{
+"slug": "figma",
+"name": "Figma",
+"cat": "Design & Creative Tools",
+"catZh": "设计与创意工具",
+"desc": "Collaborative design tool. Vibrant multi-color, playful yet professional",
+"sw": [
+"#000000",
+"#FFFFFF",
+"#E6E6E6",
+"#F1F1F1",
+"#F7F7F5"
+],
+"font": "sans"
+},
+{
+"slug": "framer",
+"name": "Framer",
+"cat": "Design & Creative Tools",
+"catZh": "设计与创意工具",
+"desc": "Website builder. Bold black and blue, motion-first, design-forward",
+"sw": [
+"#FFFFFF",
+"#090909",
+"#000000",
+"#0099FF",
+"#999999"
+],
+"font": "sans"
+},
+{
+"slug": "miro",
+"name": "Miro",
+"cat": "Design & Creative Tools",
+"catZh": "设计与创意工具",
+"desc": "Visual collaboration. Bright yellow accent, infinite canvas aesthetic",
+"sw": [
+"#1C1C1E",
+"#FFFFFF",
+"#F7F8FA",
+"#FFD02F",
+"#FCB900"
+],
+"font": "sans"
+},
+{
+"slug": "webflow",
+"name": "Webflow",
+"cat": "Design & Creative Tools",
+"catZh": "设计与创意工具",
+"desc": "Visual web builder. Blue-accented, polished marketing site aesthetic",
+"sw": [
+"#080808",
+"#FFFFFF",
+"#363636",
+"#222222",
+"#5A5A5A"
+],
+"font": "serif"
+},
+{
+"slug": "binance",
+"name": "Binance",
+"cat": "Fintech & Crypto",
+"catZh": "金融与加密",
+"desc": "Crypto exchange. Bold Binance Yellow on monochrome, trading-floor urgency",
+"sw": [
+"#FCD535",
+"#181A20",
+"#EAECEF",
+"#F0B90B",
+"#3A3A1F"
+],
+"font": "serif"
+},
+{
+"slug": "coinbase",
+"name": "Coinbase",
+"cat": "Fintech & Crypto",
+"catZh": "金融与加密",
+"desc": "Crypto exchange. Clean blue identity, trust-focused, institutional feel",
+"sw": [
+"#0052FF",
+"#0A0B0D",
+"#FFFFFF",
+"#5B616E",
+"#003ECC"
+],
+"font": "serif"
+},
+{
+"slug": "kraken",
+"name": "Kraken",
+"cat": "Fintech & Crypto",
+"catZh": "金融与加密",
+"desc": "Crypto trading platform. Purple-accented dark UI, data-dense dashboards",
+"sw": [
+"#7132F5",
+"#101114",
+"#5741D8",
+"#149E61",
+"#FFFFFF"
+],
+"font": "sans"
+},
+{
+"slug": "mastercard",
+"name": "Mastercard",
+"cat": "Fintech & Crypto",
+"catZh": "金融与加密",
+"desc": "Global payments network. Warm cream canvas, orbital pill shapes, editorial warmth",
+"sw": [
+"#F3F0EE",
+"#EB001B",
+"#F79E1B",
+"#141413",
+"#FFFFFF"
+],
+"font": "sans"
+},
+{
+"slug": "mercury",
+"name": "Mercury",
+"cat": "Fintech & Crypto",
+"catZh": "金融与加密",
+"desc": "Startup banking platform. Ink-violet night world, indigo action pill, light custom sans",
+"sw": [
+"#5266EB",
+"#28253B",
+"#FBFCFD",
+"#FFFFFF",
+"#9CB4E8"
+],
+"font": "sans"
+},
+{
+"slug": "nerdwallet",
+"name": "NerdWallet",
+"cat": "Fintech & Crypto",
+"catZh": "金融与加密",
+"desc": "Personal finance comparison platform. Deep spruce green, mint washes, near-square corners",
+"sw": [
+"#008254",
+"#000000",
+"#FFFFFF",
+"#3D4045",
+"#006642"
+],
+"font": "sans"
+},
+{
+"slug": "revolut",
+"name": "Revolut",
+"cat": "Fintech & Crypto",
+"catZh": "金融与加密",
+"desc": "Digital banking. Sleek dark interface, gradient cards, fintech precision",
+"sw": [
+"#494FDF",
+"#191C1F",
+"#FFFFFF",
+"#1F2226",
+"#4F55F1"
+],
+"font": "sans"
+},
+{
+"slug": "stripe",
+"name": "Stripe",
+"cat": "Fintech & Crypto",
+"catZh": "金融与加密",
+"desc": "Payment infrastructure. Signature purple gradients, weight-300 elegance",
+"sw": [
+"#533AFD",
+"#0D253D",
+"#FFFFFF",
+"#4434D4",
+"#2E2B8C"
+],
+"font": "serif"
+},
+{
+"slug": "wise",
+"name": "Wise",
+"cat": "Fintech & Crypto",
+"catZh": "金融与加密",
+"desc": "International money transfer. Bright green accent, friendly and clear",
+"sw": [
+"#9FE870",
+"#0E0F0C",
+"#FFFFFF",
+"#454745",
+"#CDFFAD"
+],
+"font": "serif"
+},
+{
+"slug": "airbnb",
+"name": "Airbnb",
+"cat": "E-commerce & Retail",
+"catZh": "电商与零售",
+"desc": "Travel marketplace. Warm coral accent, photography-driven, rounded UI",
+"sw": [
+"#FF385C",
+"#222222",
+"#FFFFFF",
+"#3F3F3F",
+"#E00B41"
+],
+"font": "serif"
+},
+{
+"slug": "meta",
+"name": "Meta",
+"cat": "E-commerce & Retail",
+"catZh": "电商与零售",
+"desc": "Tech retail store. Photography-first, binary light/dark surfaces, Meta Blue CTAs",
+"sw": [
+"#0064E0",
+"#1C1E21",
+"#FFFFFF",
+"#0457CB",
+"#0091FF"
+],
+"font": "sans"
+},
+{
+"slug": "mydealz",
+"name": "mydealz",
+"cat": "E-commerce & Retail",
+"catZh": "电商与零售",
+"desc": "German deals community. Dense white-card feed, hot and cold voting pill, brand green",
+"sw": [
+"#30A83C",
+"#000000",
+"#F3F5F7",
+"#6B6D70",
+"#FFFFFF"
+],
+"font": "sans"
+},
+{
+"slug": "nike",
+"name": "Nike",
+"cat": "E-commerce & Retail",
+"catZh": "电商与零售",
+"desc": "Athletic retail. Monochrome UI, massive uppercase Futura, full-bleed photography",
+"sw": [
+"#111111",
+"#FFFFFF",
+"#F5F5F5",
+"#39393B",
+"#4B4B4D"
+],
+"font": "sans"
+},
+{
+"slug": "shopify",
+"name": "Shopify",
+"cat": "E-commerce & Retail",
+"catZh": "电商与零售",
+"desc": "E-commerce platform. Dark-first cinematic, neon green accent, ultra-light display type",
+"sw": [
+"#000000",
+"#FFFFFF",
+"#0A0A0A",
+"#FBFBF5",
+"#1E2C31"
+],
+"font": "serif"
+},
+{
+"slug": "starbucks",
+"name": "Starbucks",
+"cat": "E-commerce & Retail",
+"catZh": "电商与零售",
+"desc": "Coffee retail flagship. Four-tier earth-green system, warm cream canvas, proprietary SoDoSans typography",
+"sw": [
+"#00754A",
+"#F2F0EB",
+"#1E3932",
+"#006241",
+"#EDEBE9"
+],
+"font": "serif"
+},
+{
+"slug": "1win",
+"name": "1win",
+"cat": "Media & Consumer Tech",
+"catZh": "媒体与消费电子",
+"desc": "Crypto casino and sportsbook. Near-black canvas, vivid green action color, dense game-tile rails",
+"sw": [
+"#00B24B",
+"#F0F2F5",
+"#141415",
+"#2E3035",
+"#0075FF"
+],
+"font": "sans"
+},
+{
+"slug": "aljazeera",
+"name": "Al Jazeera",
+"cat": "Media & Consumer Tech",
+"catZh": "媒体与消费电子",
+"desc": "Global news network. Flat white paper, dense Roboto headlines, orange signature and live red",
+"sw": [
+"#FA9000",
+"#000000",
+"#FFFFFF",
+"#C31833",
+"#333333"
+],
+"font": "sans"
+},
+{
+"slug": "apple",
+"name": "Apple",
+"cat": "Media & Consumer Tech",
+"catZh": "媒体与消费电子",
+"desc": "Consumer electronics. Premium white space, SF Pro, cinematic imagery",
+"sw": [
+"#0066CC",
+"#1D1D1F",
+"#FFFFFF",
+"#0071E3",
+"#2997FF"
+],
+"font": "serif"
+},
+{
+"slug": "dji",
+"name": "DJI",
+"cat": "Media & Consumer Tech",
+"catZh": "媒体与消费电子",
+"desc": "Drone and camera maker. Studio product tiles, engineering-blue pills, tight Open Sans",
+"sw": [
+"#0070D5",
+"#262626",
+"#FFFFFF",
+"#0060EF",
+"#DEEAFD"
+],
+"font": "sans"
+},
+{
+"slug": "hp",
+"name": "HP",
+"cat": "Media & Consumer Tech",
+"catZh": "媒体与消费电子",
+"desc": "PC and printer maker. Pure white canvas, HP Electric Blue signal CTA, geometric Forma DJR Micro, blue chevron decorations",
+"sw": [
+"#024AD8",
+"#1A1A1A",
+"#FFFFFF",
+"#296EF9",
+"#0E3191"
+],
+"font": "sans"
+},
+{
+"slug": "ibm",
+"name": "IBM",
+"cat": "Media & Consumer Tech",
+"catZh": "媒体与消费电子",
+"desc": "Enterprise technology. Carbon design system, structured blue palette",
+"sw": [
+"#0F62FE",
+"#161616",
+"#FFFFFF",
+"#525252",
+"#8C8C8C"
+],
+"font": "sans"
+},
+{
+"slug": "nvidia",
+"name": "NVIDIA",
+"cat": "Media & Consumer Tech",
+"catZh": "媒体与消费电子",
+"desc": "GPU computing. Green-black energy, technical power aesthetic",
+"sw": [
+"#76B900",
+"#000000",
+"#FFFFFF",
+"#1A1A1A",
+"#5A8D00"
+],
+"font": "sans"
+},
+{
+"slug": "oura",
+"name": "Oura",
+"cat": "Media & Consumer Tech",
+"catZh": "媒体与消费电子",
+"desc": "Smart ring wellness brand. Warm paper cream, editorial serif, earth-tone accents",
+"sw": [
+"#2A72DE",
+"#1C1B1A",
+"#F7F1E8",
+"#FFFFFF",
+"#4A4741"
+],
+"font": "serif"
+},
+{
+"slug": "pinterest",
+"name": "Pinterest",
+"cat": "Media & Consumer Tech",
+"catZh": "媒体与消费电子",
+"desc": "Visual discovery platform. Red accent, masonry grid, image-first",
+"sw": [
+"#E60023",
+"#000000",
+"#FFFFFF",
+"#262622",
+"#F6F6F3"
+],
+"font": "sans"
+},
+{
+"slug": "playstation",
+"name": "PlayStation",
+"cat": "Media & Consumer Tech",
+"catZh": "媒体与消费电子",
+"desc": "Gaming console retail. Three-surface channel layout, cyan hover-scale interaction",
+"sw": [
+"#0070D1",
+"#000000",
+"#F5F7FA",
+"#0064B7",
+"#004D8D"
+],
+"font": "sans"
+},
+{
+"slug": "spacex",
+"name": "SpaceX",
+"cat": "Media & Consumer Tech",
+"catZh": "媒体与消费电子",
+"desc": "Space technology. Stark black and white, full-bleed imagery, futuristic",
+"sw": [
+"#000000",
+"#FFFFFF",
+"#F0F0FA",
+"#0A0A0A",
+"#3A3A3F"
+],
+"font": "serif"
+},
+{
+"slug": "spotify",
+"name": "Spotify",
+"cat": "Media & Consumer Tech",
+"catZh": "媒体与消费电子",
+"desc": "Music streaming. Vibrant green on dark, bold type, album-art-driven",
+"sw": [
+"#1ED760",
+"#121212",
+"#181818",
+"#FFFFFF",
+"#B3B3B3"
+],
+"font": "sans"
+},
+{
+"slug": "theverge",
+"name": "The Verge",
+"cat": "Media & Consumer Tech",
+"catZh": "媒体与消费电子",
+"desc": "Tech editorial media. Acid-mint and ultraviolet accents, Manuka display type",
+"sw": [
+"#3CFFD0",
+"#131313",
+"#5200FF",
+"#FFFFFF",
+"#131313"
+],
+"font": "sans"
+},
+{
+"slug": "uber",
+"name": "Uber",
+"cat": "Media & Consumer Tech",
+"catZh": "媒体与消费电子",
+"desc": "Mobility platform. Bold black and white, tight type, urban energy",
+"sw": [
+"#000000",
+"#FFFFFF",
+"#5E5E5E",
+"#AFAFAF",
+"#4B4B4B"
+],
+"font": "serif"
+},
+{
+"slug": "vodafone",
+"name": "Vodafone",
+"cat": "Media & Consumer Tech",
+"catZh": "媒体与消费电子",
+"desc": "Global telecom brand. Monumental uppercase display, Vodafone Red chapter bands",
+"sw": [
+"#E60000",
+"#25282B",
+"#FFFFFF",
+"#7E7E7E",
+"#BEBEBE"
+],
+"font": "serif"
+},
+{
+"slug": "wired",
+"name": "WIRED",
+"cat": "Media & Consumer Tech",
+"catZh": "媒体与消费电子",
+"desc": "Tech magazine. Paper-white broadsheet density, custom serif, ink-blue links",
+"sw": [
+"#000000",
+"#FFFFFF",
+"#757575",
+"#1A1A1A",
+"#E0E0E0"
+],
+"font": "sans"
+},
+{
+"slug": "bmw",
+"name": "BMW",
+"cat": "Automotive",
+"catZh": "汽车",
+"desc": "Luxury automotive. Dark premium surfaces, precise German engineering aesthetic",
+"sw": [
+"#1C69D4",
+"#262626",
+"#FFFFFF",
+"#1A2129",
+"#FAFAFA"
+],
+"font": "serif"
+},
+{
+"slug": "bmw-m",
+"name": "BMW M",
+"cat": "Automotive",
+"catZh": "汽车",
+"desc": "Performance automotive. Motorsport-inspired contrast, M color accents, precision-driven layout",
+"sw": [
+"#FFFFFF",
+"#000000",
+"#1A1A1A",
+"#BBBBBB",
+"#E6E6E6"
+],
+"font": "serif"
+},
+{
+"slug": "bugatti",
+"name": "Bugatti",
+"cat": "Automotive",
+"catZh": "汽车",
+"desc": "Luxury hypercar. Cinema-black canvas, monochrome austerity, monumental display type",
+"sw": [
+"#FFFFFF",
+"#000000",
+"#141414",
+"#CCCCCC",
+"#E6E6E6"
+],
+"font": "serif"
+},
+{
+"slug": "ferrari",
+"name": "Ferrari",
+"cat": "Automotive",
+"catZh": "汽车",
+"desc": "Luxury automotive. Chiaroscuro black-white editorial, Ferrari Red with extreme sparseness",
+"sw": [
+"#DA291C",
+"#FFFFFF",
+"#181818",
+"#303030",
+"#969696"
+],
+"font": "serif"
+},
+{
+"slug": "lamborghini",
+"name": "Lamborghini",
+"cat": "Automotive",
+"catZh": "汽车",
+"desc": "Luxury automotive. True black cathedral, gold accent, LamboType custom Neo-Grotesk",
+"sw": [
+"#FFC000",
+"#000000",
+"#FFFFFF",
+"#FFC000",
+"#1A1A1A"
+],
+"font": "sans"
+},
+{
+"slug": "renault",
+"name": "Renault",
+"cat": "Automotive",
+"catZh": "汽车",
+"desc": "French automotive. Vivid aurora gradients, NouvelR proprietary typeface, zero-radius buttons",
+"sw": [
+"#FFED00",
+"#000000",
+"#FFFFFF",
+"#222222",
+"#E6D200"
+],
+"font": "sans"
+},
+{
+"slug": "tesla",
+"name": "Tesla",
+"cat": "Automotive",
+"catZh": "汽车",
+"desc": "Electric vehicles. Radical subtraction, cinematic full-viewport photography, Universal Sans",
+"sw": [
+"#3E6AE1",
+"#FFFFFF",
+"#171A20",
+"#393C41",
+"#F4F4F4"
+],
+"font": "sans"
+},
+{
+"slug": "dell-1996",
+"name": "Dell (1996)",
+"cat": "Retro Web (1990s/2000s)",
+"catZh": "复古网页",
+"desc": "Catalog-era enterprise web. Literal black page frame, flat color-block \"ribbon cards\", chunky Helvetica-Black titles over Times Roman body, and hand-cut GIF stickers (NEW! bursts, award seals, beveled product photos).",
+"sw": [
+"#E91D2A",
+"#000000",
+"#FFFFFF",
+"#FCC20F",
+"#6A26A4"
+],
+"font": "sans"
+},
+{
+"slug": "nintendo-2001",
+"name": "Nintendo.com (2001)",
+"cat": "Retro Web (1990s/2000s)",
+"catZh": "复古网页",
+"desc": "Y2K \"console chrome\" web. Brushed-periwinkle beveled metal panels, a halftone-dotted carbon nav glowing amber, outlined Arial-Black box-art wordmarks over circuit-board hero fields, and a pixel Mario welcome bubble.",
+"sw": [
+"#E60012",
+"#21242E",
+"#7A8ABA",
+"#FFFFFF",
+"#F68D1F"
+],
+"font": "sans"
+},
+{
+"slug": "slack",
+"name": "Slack",
+"cat": "Productivity & SaaS",
+"catZh": "效率与 SaaS",
+"desc": "Team messaging platform. Aubergine brand with a dense sidebar hierarchy",
+"sw": [
+"#4A154B",
+"#1D1D1D",
+"#FFFFFF",
+"#481A54",
+"#611F69"
+],
+"font": "serif"
+}
+]
+};
+const BLOB = "https://github.com/jjjlllwww/JJJLLLWWW.github.io/blob/main/awesome-design-md/design-md/";
+const KIND = {serif:"衬线", sans:"无衬线", mono:"等宽"};
+
+const wall = document.getElementById("wall");
+const chipsEl = document.getElementById("chips");
+const countEl = document.getElementById("count");
+const qEl = document.getElementById("q");
+let activeCat = "all";
+
+const cats = DATA.order.map(c => ({cat:c, zh:(DATA.systems.find(s => s.cat === c) || {}).catZh || c,
+  n:DATA.systems.filter(s => s.cat === c).length}));
+
+function chip(label, value, n) {
+  const b = document.createElement("button");
+  b.className = "chip";
+  b.type = "button";
+  b.setAttribute("aria-pressed", String(value === activeCat));
+  b.innerHTML = label + (n != null ? ` <i>${n}</i>` : "");
+  b.addEventListener("click", () => { activeCat = value; syncChips(); render(); });
+  return b;
+}
+
+function syncChips() {
+  chipsEl.querySelectorAll(".chip").forEach((el, i) => {
+    el.setAttribute("aria-pressed", String((i === 0 ? "all" : cats[i - 1].cat) === activeCat));
+  });
+}
+
+function matches(s, q) {
+  if (!q) return true;
+  const hay = (s.name + " " + s.slug + " " + s.desc + " " + s.catZh + " " + s.cat).toLowerCase();
+  return q.split(/\s+/).every(t => hay.includes(t));
+}
+
+function cardEl(s) {
+  const a = document.createElement("a");
+  a.className = "card";
+  a.href = BLOB + encodeURIComponent(s.slug) + "/DESIGN.md";
+  a.target = "_blank";
+  a.rel = "noopener";
+  a.setAttribute("aria-label", s.name + " 的 DESIGN.md");
+  const sw = s.sw.map(c => `<span style="background:${c}"></span>`).join("");
+  a.innerHTML =
+    `<div class="card__sw" aria-hidden="true">${sw}</div>` +
+    `<div class="card__body">` +
+      `<h3 class="card__name">${esc(s.name)} <em>${esc(s.slug)}</em></h3>` +
+      `<p class="card__desc">${esc(s.desc)}</p>` +
+      `<div class="card__foot"><span class="card__kind">${KIND[s.font] || "无衬线"}</span>` +
+      `<span>${s.sw.length} 色</span><span class="card__go">阅读 DESIGN.md</span></div>` +
+    `</div>`;
+  return a;
+}
+
+function esc(t) {
+  return String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+
+function render() {
+  const q = qEl.value.trim().toLowerCase();
+  const all = DATA.systems;
+  const shown = all.filter(s => (activeCat === "all" || s.cat === activeCat) && matches(s, q));
+  wall.textContent = "";
+  let total = 0;
+  DATA.order.forEach(c => {
+    const list = shown.filter(s => s.cat === c);
+    if (!list.length) return;
+    total += list.length;
+    const meta = cats.find(x => x.cat === c);
+    const g = document.createElement("section");
+    g.className = "group";
+    g.innerHTML =
+      `<div class="group__head"><h2 class="group__name">${esc(meta.zh)}</h2>` +
+      `<span class="group__en">${esc(c).toUpperCase()}</span>` +
+      `<span class="group__n">${list.length} / ${meta.n}</span></div>` +
+      `<div class="cards"></div>`;
+    const holder = g.querySelector(".cards");
+    list.forEach(s => holder.appendChild(cardEl(s)));
+    wall.appendChild(g);
+  });
+  if (!shown.length) {
+    const e = document.createElement("div");
+    e.className = "empty";
+    e.innerHTML = `<p>没有匹配「${esc(qEl.value.trim())}」的系统。试试 stripe、暗黑、衬线，或者清掉筛选。</p>`;
+    const b = document.createElement("button");
+    b.type = "button";
+    b.textContent = "清除筛选";
+    b.addEventListener("click", () => { qEl.value = ""; activeCat = "all"; syncChips(); render(); });
+    e.appendChild(b);
+    wall.appendChild(e);
+  }
+  countEl.textContent = (q || activeCat !== "all")
+    ? `${shown.length} / ${all.length}`
+    : `${all.length} / ${all.length}`;
+}
+
+chipsEl.appendChild(chip("全部", "all", DATA.systems.length));
+cats.forEach(c => chipsEl.appendChild(chip(c.zh, c.cat, c.n)));
+qEl.addEventListener("input", render);
+qEl.addEventListener("keydown", e => {
+  if (e.key === "Escape") { qEl.value = ""; render(); }
+});
+render();
+</script>
+</body>
+</html>
